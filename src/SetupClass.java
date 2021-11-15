@@ -39,9 +39,10 @@ public class SetupClass extends BasicGame {
 		Input input = container.getInput();        
 		///==============================INTERACTIONS AVEC LA MAP===================================================
         int wallLayer = map.getLayerIndex("walls");
+        int holeLayer = map.getLayerIndex("holes");
         
         map.getTileId(0, 0, wallLayer);
-        if(input.isKeyPressed(Input.KEY_D)) {
+        if(input.isKeyPressed(Input.KEY_D) || input.isKeyPressed(Input.KEY_RIGHT)) {
         	if(map.getTileId(x+1, y, wallLayer)==0) {
         		x++;
         	}
@@ -49,7 +50,7 @@ public class SetupClass extends BasicGame {
         		x2++;
         	}
         }
-        if(input.isKeyPressed(Input.KEY_Q)) {
+        if(input.isKeyPressed(Input.KEY_Q) || input.isKeyPressed(Input.KEY_LEFT)) {
         	if(map.getTileId(x-1, y, wallLayer)==0) {
         		x--;
         	}
@@ -57,7 +58,7 @@ public class SetupClass extends BasicGame {
         		x2--;
         	}
         }
-        if(input.isKeyPressed(Input.KEY_S)) {
+        if(input.isKeyPressed(Input.KEY_S) || input.isKeyPressed(Input.KEY_DOWN)) {
         	if(map.getTileId(x, y+1, wallLayer)==0) {
         		y++;
         	}
@@ -65,13 +66,19 @@ public class SetupClass extends BasicGame {
         		y2++;
         	}
         }
-        if(input.isKeyPressed(Input.KEY_Z)) {
+        if(input.isKeyPressed(Input.KEY_Z) || input.isKeyPressed(Input.KEY_DOWN)) {
         	if(map.getTileId(x, y-1, wallLayer)==0) {
         		y--;
         	}
         	if(map.getTileId(x2, y2-1, wallLayer)==0) {
         		y2--;
         	}
+        }
+        if(map.getTileId(x, y, holeLayer)!= 0 || map.getTileId(x2, y2, holeLayer) != 0) {
+        	x = 2;
+        	y = 2;
+        	x2 = 17;
+        	y2 = 2;
         }
 	}
 	
