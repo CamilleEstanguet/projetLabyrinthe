@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="../textures.tsx"/>
+ <layer id="1" name="background" width="25" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DAQkAAAwEofv+pZdjoOCqqar66gEA314jxAkAAA==
+  </data>
+ </layer>
+ <layer id="2" name="objects" width="25" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACjNnYGAwJxIzkKAWm158gBg1+PQORztwhR+17cClbqjaQa20ScgOaoCRage55chg88dA2oEv/Q50/qAWGCg7SE2z1FSHz4341BFbR1ECRu0g3Q5S8hk55SEArA+mYsQJAAA=
+  </data>
+ </layer>
+</map>
