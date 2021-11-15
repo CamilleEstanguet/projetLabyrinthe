@@ -10,6 +10,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
+import org.newdawn.slick.gui.TextField;
 import org.newdawn.slick.tiled.TiledMap;
 
 
@@ -22,6 +23,7 @@ public class SetupClass extends BasicGame {
 	private Music music;
 	private Sound fallSound;
 	private Sound stepSound;
+	private Sound victory;
 	
 	private Image knight = null;
 	Character player = new Character();
@@ -39,6 +41,7 @@ public class SetupClass extends BasicGame {
 		music.loop();
 		fallSound = new Sound("data/sound/pouf.wav");
 		stepSound = new Sound("data/sound/footstep.wav");
+		victory = new Sound("data/sound/pouetpouet.wav");
 		
 		knight = new Image("data/Jean-Pascal.png");
 		
@@ -58,6 +61,7 @@ public class SetupClass extends BasicGame {
 		///==============================INTERACTIONS AVEC LA MAP===================================================
         int wallLayer = map.getLayerIndex("walls");
         int holeLayer = map.getLayerIndex("holes");
+        int endLayer = map.getLayerIndex("end");
         
         map.getTileId(0, 0, wallLayer);
         if(input.isKeyPressed(Input.KEY_D) || input.isKeyPressed(Input.KEY_RIGHT)) {
@@ -102,6 +106,13 @@ public class SetupClass extends BasicGame {
         	fallSound.play();
         	player.sendToSpawn();
         	player2.sendToSpawn();
+        }
+        
+        if(map.getTileId((int)player.getX(), (int)player.getY(), endLayer)!= 0 && map.getTileId((int)player2.getX(), (int)player2.getY(), endLayer) != 0) {
+        	victory.play();
+        	player.sendToSpawn();
+        	player2.sendToSpawn();
+        	
         }
 	}
 	

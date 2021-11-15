@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
  <tileset firstgid="1" source="../textures.tsx"/>
- <layer id="1" name="fond" width="30" height="30">
+ <layer id="1" name="background" width="30" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3DAQ0AAAzDoM6/6Qs5JKyaqqqq7x6slrLfEA4AAA==
+   H4sIAAAAAAAACmNkYGBgHITYGYhNgNiFzvaaIGFy7EbWT4q+YCR9IVRw+0DHHwgbQbHTIHALpX4IIkKtIQ5x40HgD1pgeuZN5DAcqPQ9UPaSWx7QEuNK68MFU5JnDQdp+AzVcojWYUlN842Q8ECH2ygexaN4FJOCAfOIDZYQDgAA
   </data>
  </layer>
  <layer id="3" name="holes" width="30" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYOSBVCgeBYMbDNY4osRdtPbTYA2zUYAd0Cq+BnMZR667Bqt/BgKMxLAYiX4eBaOAXgAAq9uHPhAOAAA=
+   H4sIAAAAAAAACmNgGAWjYOBAKRCXDYC9rUDcNgD2jgLSQOpAOwAHoMRdxlRzBXYwWMNspAJCZRyt4mswl3Hk5oHRtI0AIzEsRqKfR8EooBcAAHZs0RMQDgAA
   </data>
  </layer>
  <layer id="2" name="walls" width="30" height="30">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu2WUQqAMAxD9+uJvP/N/BJKSUxWJ5uwQBFx7Wu3rni21s5JVlHV7/bd3P9xD2KMy9YrX8RlirG+qJex4rfIPchaZmqfVM6Z62pUX0WuUwerN8fq5SJlLpOKlbmqTsRF55l9nvqK5RvfWb2VnLO/88xcR+j+sv5XXNZz6i6het3+VH3xJHdesblRFeJW5rM749B8dvcIcZVyzLdz0rk/DreHrep1ub0awe0921Hcilb6v9rcNbkz7AJ5+mzJEA4AAA==
+  </data>
+ </layer>
+ <layer id="4" name="end" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFIwkYD7QDBikwpLJ5jkDsRGUzkQGueAwE4iAa2gsDlIYXLvejm0uuPbRI57kDrJ8WAAAQ1gC+EA4AAA==
   </data>
  </layer>
 </map>
