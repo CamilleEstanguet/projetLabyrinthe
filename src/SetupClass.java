@@ -17,7 +17,8 @@ public class SetupClass extends BasicGame {
 	
 	private TiledMap map;
 	private Image knight = null;
-	private int x,y, x2, y2;
+	Character player = new Character();
+	Character player2 = new Character();
 	public SetupClass(String title) {
 		super(title);
 		// TODO Auto-generated constructor stub
@@ -28,10 +29,14 @@ public class SetupClass extends BasicGame {
 		map = new TiledMap("data/maps/mapDoubleLaby1.tmx");
 		knight = new Image("data/Jean-Pascal.png");
 		
-		x = 2;
-		y = 2;
-		x2 = 17;
-		y2 = 2;
+		player.setSpawn(2,2);
+		player.sendToSpawn();
+		player.setSprite(knight);
+		player2.setSpawn(17, 2);
+		player2.sendToSpawn();
+		player2.setSprite(knight);
+
+		
 	}
 	
 	public void update(GameContainer container, int delta) throws SlickException //Implementation des mechaniques de jeu
@@ -43,42 +48,41 @@ public class SetupClass extends BasicGame {
         
         map.getTileId(0, 0, wallLayer);
         if(input.isKeyPressed(Input.KEY_D) || input.isKeyPressed(Input.KEY_RIGHT)) {
-        	if(map.getTileId(x+1, y, wallLayer)==0) {
-        		x++;
+        	if(map.getTileId((int)player.getX()+1, (int)player.getY(), wallLayer)==0) {
+        		player.setX(player.getX()+ 1);
         	}
-        	if(map.getTileId(x2+1, y2, wallLayer)==0) {
-        		x2++;
+        	if(map.getTileId((int)player2.getX()+1, (int)player2.getY(), wallLayer)==0) {
+        		player2.setX(player2.getX()+ 1);
         	}
         }
         if(input.isKeyPressed(Input.KEY_Q) || input.isKeyPressed(Input.KEY_LEFT)) {
-        	if(map.getTileId(x-1, y, wallLayer)==0) {
-        		x--;
+        	if(map.getTileId((int)player.getX()-1, (int)player.getY(), wallLayer)==0) {
+        		player.setX(player.getX() - 1);
         	}
-        	if(map.getTileId(x2-1, y2, wallLayer)==0) {
-        		x2--;
+        	if(map.getTileId((int)player2.getX()-1, (int)player2.getY(), wallLayer)==0) {
+        		player2.setX(player2.getX() - 1);
         	}
         }
         if(input.isKeyPressed(Input.KEY_S) || input.isKeyPressed(Input.KEY_DOWN)) {
-        	if(map.getTileId(x, y+1, wallLayer)==0) {
-        		y++;
+        	if(map.getTileId((int)player.getX(), (int)player.getY()+1, wallLayer)==0) {
+        		player.setY(player.getY()+ 1);
         	}
-        	if(map.getTileId(x2, y2+1, wallLayer)==0) {
-        		y2++;
-        	}
-        }
-        if(input.isKeyPressed(Input.KEY_Z) || input.isKeyPressed(Input.KEY_DOWN)) {
-        	if(map.getTileId(x, y-1, wallLayer)==0) {
-        		y--;
-        	}
-        	if(map.getTileId(x2, y2-1, wallLayer)==0) {
-        		y2--;
+        	if(map.getTileId((int)player2.getX(), (int)player2.getY()+1, wallLayer)==0) {
+        		player2.setY(player2.getY()+ 1);
         	}
         }
-        if(map.getTileId(x, y, holeLayer)!= 0 || map.getTileId(x2, y2, holeLayer) != 0) {
-        	x = 2;
-        	y = 2;
-        	x2 = 17;
-        	y2 = 2;
+        if(input.isKeyPressed(Input.KEY_Z) || input.isKeyPressed(Input.KEY_UP)) {
+        	if(map.getTileId((int)player.getX(), (int)player.getY()-1, wallLayer)==0) {
+        		player.setY(player.getY() - 1);
+        	}
+        	if(map.getTileId((int)player2.getX(), (int)player2.getY()-1, wallLayer)==0) {
+        		player2.setY(player2.getY() - 1);
+        	}
+        }
+        
+        if(map.getTileId((int)player.getX(), (int)player.getY(), holeLayer)!= 0 || map.getTileId((int)player2.getX(), (int)player2.getY(), holeLayer) != 0) {
+        	player.sendToSpawn();
+        	player2.sendToSpawn();
         }
 	}
 	
@@ -86,8 +90,8 @@ public class SetupClass extends BasicGame {
 	{
 		
 		map.render(0, 0);	
-		knight.draw(x*32, y*32, 32, 32);
-		knight.draw(x2*32, y2*32, 32, 32);
+		player.render();
+		player2.render();
 	}
 
 
