@@ -16,6 +16,7 @@ public class SetupClass extends BasicGame {
 	
 	
 	private TiledMap map;
+	private Image knight = null;
 	private int x,y, x2, y2;
 	public SetupClass(String title) {
 		super(title);
@@ -25,6 +26,7 @@ public class SetupClass extends BasicGame {
 	public void init(GameContainer container) throws SlickException //Implementation des elements presents au debut du jeu
 	{
 		map = new TiledMap("data/maps/mapDoubleLaby1.tmx");
+		knight = new Image("data/Jean-Pascal.png");
 		
 		x = 2;
 		y = 2;
@@ -77,8 +79,8 @@ public class SetupClass extends BasicGame {
 	{
 		
 		map.render(0, 0);	
-		g.fillRect(x*32, y*32, 32, 32);
-		g.fillRect(x2*32, y2*32, 32, 32);
+		knight.draw(x*32, y*32, 32, 32);
+		knight.draw(x2*32, y2*32, 32, 32);
 	}
 
 
